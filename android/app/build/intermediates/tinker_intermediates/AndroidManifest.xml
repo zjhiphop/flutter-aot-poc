@@ -1,10 +1,11 @@
 <manifest package="com.sk.flutter_hot_fix" android:versionCode="1" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.0">
   <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="29"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
   <application android:name="com.sk.flutter_hot_fix.AppApplication" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@mipmap/ic_launcher" android:label="flutter_hot_fix">
     <activity android:name="com.sk.flutter_hot_fix.MainActivity" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:windowSoftInputMode="adjustResize">
       <meta-data android:name="io.flutter.embedding.android.NormalTheme" android:resource="@style/NormalTheme"/>
@@ -77,7 +78,9 @@
     <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_00_T" android:launchMode="singleInstance" android:theme="@android:style/Theme.Translucent"/>
     <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_01_T" android:launchMode="singleInstance" android:theme="@android:style/Theme.Translucent"/>
     <activity android:name="com.tencent.tinker.loader.hotplug.ActivityStubs$SIStub_02_T" android:launchMode="singleInstance" android:theme="@android:style/Theme.Translucent"/>
-    <meta-data android:name="tinker_version" android:value="1.9.14.6"/>
-    <meta-data android:name="TINKER_ID" android:value="tinker_id_1.0.3-patch"/>
+    <meta-data android:name="tinker_version" android:value="1.9.14.20"/>
+    <uses-library android:name="androidx.window.extensions" android:required="false"/>
+    <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+    <meta-data android:name="TINKER_ID" android:value="tinker_id_1.2.0-patch"/>
   </application>
 </manifest>

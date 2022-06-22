@@ -9,6 +9,11 @@
         android:name="com.sk.flutter_hot_fix.AppApplication"
         android:label="flutter_hot_fix"
         android:icon="@mipmap/ic_launcher">
+<!--        <service-->
+<!--            android:name=".services.RestartService"-->
+<!--            android:permission="android.permission.BIND_JOB_SERVICE"-->
+<!--            android:exported="false"/>-->
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -44,4 +49,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 </manifest>

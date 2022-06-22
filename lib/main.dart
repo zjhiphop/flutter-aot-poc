@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bugly/flutter_bugly.dart';
 
 void main() {
-  runApp(MyApp());
+  FlutterBugly.postCatchedException(() {
+    // 如果需要 ensureInitialized，请在这里运行。
+    WidgetsFlutterBinding.ensureInitialized();
+
+    runApp(MyApp());
+
+    FlutterBugly.init(
+        androidAppId: "9b1052211a", upgradeCheckPeriod: 60 * 10); // 每10分钟检查一次
+
+    //手动检查更新
+    FlutterBugly.checkUpgrade(isManual: false, isSilence: false);
+    FlutterBugly.setUserId("jade hot fix");
+    FlutterBugly.putUserData(key: "test key", value: "test value");
+    int tag = 9527;
+    FlutterBugly.setUserTag(tag);
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -98,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'You have pushed the button this many times (Version: 1.2.0 - auto restart):',
             ),
             Text(
               '$_counter',
