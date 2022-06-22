@@ -5,7 +5,7 @@ def bakPath = file("${buildDir}/bakApk/")
 /**
  * 此处填写每次构建生成的基准包目录
  */
-def baseApkDir = "app-0619-00-46-00"
+def baseApkDir = "app-0621-23-50-53"
 
 /**
  * 对于插件各参数的详细解析请参考
@@ -18,7 +18,7 @@ tinkerSupport {
     // 指定归档目录，默认值当前module的子目录tinker
     autoBackupApkDir = "${bakPath}"
 
-    tinkerId = "1.0.0-base"
+    tinkerId = "1.1.0-patch"
 //    autoGenerateTinkerId = true
 
     // 是否启用覆盖tinkerPatch配置功能，默认值false
@@ -50,6 +50,10 @@ tinkerSupport {
 
 }
 
+def isWindows() {
+    return org.gradle.internal.os.OperatingSystem.current().isWindows()
+}
+
 /**
  * 一般来说,我们无需对下面的参数做任何的修改
  * 对于各参数的详细介绍请参考:
@@ -76,8 +80,12 @@ tinkerPatch {
 
     packageConfig {
     }
+
     sevenZip {
-        zipArtifact = "com.tencent.mm:SevenZip:1.1.0"
+        if (isWindows()) {
+            artifact = 'com.tencent.mm:SevenZip:1.2.13'
+        }
+//        zipArtifact = "com.tencent.mm:SevenZip:1.1.0"
 //        path = "/usr/local/bin/7za"
     }
     buildConfig {

@@ -85,7 +85,10 @@ public class AppApplication extends FlutterApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        Bugly.init(this, "34c01a08f1", true);
+
+        FlutterMain.startInitialization(this);
+        
+        Bugly.init(this, "9b1052211a", true);
     }
 
     //配置flutterboost
